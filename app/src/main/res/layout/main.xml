@@ -18,9 +18,19 @@
                 android:src="@drawable/play"
                 android:background="#00FFFFFF"/>
     </LinearLayout>
-    <Button
+
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/soundButton"
+            android:src="@drawable/mute"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:layout_below="@id/above_buttons"
+            android:background="#00FFFFFF"/>
+    <Button
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/soundButton"
             android:layout_centerHorizontal="true"
             android:text="@string/get_modern_phrases"
             android:layout_width="wrap_content"
