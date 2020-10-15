@@ -33,6 +33,8 @@ dependencies {
     // my dependencies
     compileOnly 'org.projectlombok:lombok:1.18.12'
     annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.11'
+
 
 
     implementation 'com.android.support.constraint:constraint-layout:2.0.1'

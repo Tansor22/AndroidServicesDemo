@@ -6,7 +6,7 @@
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_centerHorizontal="true"
                 tools:context="activities.MainActivity">
-    <LinearLayout
+    <LinearLayout android:id="@+id/above_buttons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -18,4 +18,11 @@
                 android:src="@drawable/play"
                 android:background="#00FFFFFF"/>
     </LinearLayout>
+    <Button
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/above_buttons"
+            android:layout_centerHorizontal="true"
+            android:text="@string/get_modern_phrases"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/modernPhrasesButton"/>
 </RelativeLayout>

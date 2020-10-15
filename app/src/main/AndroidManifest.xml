@@ -9,14 +9,14 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <!--Services-->
-        <service android:name="core.music.MusicService">
-
-        </service>
+        <service android:name="core.music.MusicService"/>
+        <service android:name="core.ModernPhrasesService"
+                 android:permission="android.permission.BIND_JOB_SERVICE"/>
         <!--Activities-->
         <activity android:name="activities.MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
     </application>

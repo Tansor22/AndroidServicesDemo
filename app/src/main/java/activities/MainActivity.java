@@ -1,15 +1,17 @@
 package activities;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageButton;
 import androidx.annotation.Nullable;
 import core.ModernPhrasesService;
 import core.R;
 import core.music.MusicService;
+import shared.Utils;
 
-import java.util.Random;
+import static shared.Constants.MODERN_PHRASES_COUNT_KEY;
+import static shared.Constants.TIME_TO_SLEEP_KEY;
 
 public class MainActivity extends Activity {
     private static final int MODERN_PHRASES_COUNT = 5;
@@ -44,11 +46,14 @@ public class MainActivity extends Activity {
 
         ImageButton musicButton = findViewById(R.id.musicButton);
         musicButton.setOnClickListener(self -> musicServiceState = musicServiceState.getNext(this, (ImageButton) self));
-        Intent modernPhrasesIntent = new Intent(this, ModernPhrasesService.class);
-        Random r = new Random(System.currentTimeMillis());
-        for (int i = 0; i < MODERN_PHRASES_COUNT; i++) {
-            startService(modernPhrasesIntent.putExtra("time_to_sleep", r.nextInt(2_000)));
-        }
+
+        Button modernPhrasesButton = findViewById(R.id.modernPhrasesButton);
+        modernPhrasesButton.setOnClickListener(self ->
+                ModernPhrasesService.enqueueWork(this, ModernPhrasesService.getIntent(this)
+                        .putExtra(MODERN_PHRASES_COUNT_KEY, MODERN_PHRASES_COUNT)
+                        .putExtra(TIME_TO_SLEEP_KEY, Utils.getRandomNumber(500, 1500)))
+        );
+
 
     }
 

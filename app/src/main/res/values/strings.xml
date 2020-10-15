@@ -2,4 +2,5 @@
     <string name="app_name">AndroidServicesDemo</string>
     <string name="play">Play</string>
     <string name="stop">Stop</string>
+    <string name="get_modern_phrases">Get modern phrases</string>
 </resources>
