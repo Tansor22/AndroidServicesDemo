@@ -16,12 +16,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 public class MusicService extends Service {
-    private MusicBinder musicBinder;
     private MediaPlayer mediaPlayer;
 
 
     public static Intent getIntent(Context packageContext) {
         return new Intent(packageContext, MusicService.class);
+    }
+
+    public void setVolume(float volume) {
+        mediaPlayer.setVolume(volume, volume);
     }
 
     @Override
@@ -50,6 +53,7 @@ public class MusicService extends Service {
     @Override
     public IBinder onBind(Intent intent) {
         Toast.makeText(this, "MusicService has been bound...", Toast.LENGTH_SHORT).show();
+        mediaPlayer.start();
         return new MusicBinder(this);
     }
 }

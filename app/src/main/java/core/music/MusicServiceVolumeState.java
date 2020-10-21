@@ -10,7 +10,7 @@ public enum MusicServiceVolumeState {
             imageButton.setImageResource(R.drawable.unmute);
             if (musicServiceConnection.isMusicServiceBound()) {
                 // turn the volume off
-                musicServiceConnection.getMusicService().getMusicBinder().setVolume(.0f);
+                musicServiceConnection.getMusicService().setVolume(.0f);
             }
             return VOLUME_OFF;
         }
@@ -20,9 +20,8 @@ public enum MusicServiceVolumeState {
             imageButton.setImageResource(R.drawable.mute);
             if (musicServiceConnection.isMusicServiceBound()) {
                 // turn the volume on
-                musicServiceConnection.getMusicService().getMusicBinder().setVolume(1.f);
+                musicServiceConnection.getMusicService().setVolume(1.f);
             }
-            musicServiceConnection.setMusicServiceBound(false);
             return VOLUME_ON;
         }
     };
